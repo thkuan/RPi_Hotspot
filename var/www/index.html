@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<title>TH Wireless Authentication!</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=1;" />
+
+<link rel="stylesheet" type="text/css" href="THstyle.css" />
+<script>
+function viewError()
+{
+	var q = window.location.search;
+	var errmsg = null;
+	if (q && q.length > 1) 
+	{
+		q = q.substring(1).split("=");
+		for (var i = 0; i < q.length - 1; i += 2) 
+		{
+			if (q[i] == "errmsg") 
+			{
+				errmsg = unescape(q[i + 1]);
+				break;
+			}
+		}
+	}
+
+	if (errmsg && errmsg.length > 0) 
+	{
+		switch(errmsg) 
+		{
+		case "Authentication failed":
+			localised_msg="帳號或密碼錯誤!!<br />Wrong account or password!!";
+			break;
+		case "Access denied":
+			localised_msg="存 取 被 拒!!<br />Access denied!!";
+			break;
+		default:
+			localised_msg=errmsg;
+			break;
+		}
+		errmsg = "<div id='errorbox' style=\"color:red;\">\n<b>" + localised_msg + "</b>\n</div>\n";
+		document.getElementById("errorbox").innerHTML=errmsg;
+	}
+}
+</script>
+</head>
+
+<body onload="viewError();">
+<table >
+  <tr>
+    <td id="top">TH無線網路安全認證<p>TH Wireless Authentication</p></td>	
+  </tr>
+  <tr>
+    <td id="main">
+      <form name="authForm" method="POST" autocomplete="off" action="/auth.php">
+      <div class="hintCH">請輸入您的帳號及密碼<br /></div>
+	  <div class="hintEN">Please input your username and password.<br /><br /></div>     
+	  <div class="inputTitle"><label for="user">帳號/Username:</label></div>
+      <input onMouseOver="JavaScript: this.focus();" type="text" name="user" id="user" placeholder="username" required="required" maxlength="10" value="" /><br />
+	  <div class="inputTitle"><label for="password">密碼/Password:</label></div>
+      <input onMouseOver="JavaScript: this.focus();" type="password" name="password" id="password" placeholder="password" required="required" maxlength="10" value="" /><br />
+	  <input name="Login" type="submit" value="Log In" /><br />
+      </form>
+    </td>		
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><div id="errorbox"></div></td>
+  </tr>
+</table>
+
+<div class="info" style="visibility: hidden">
+  Policies of TH Wireless Authentication:
+  <ul>With your agreement while log in,
+	<li>We provide a WiFi hotspot for free use but collecting some data for academic research.</li>
+    <li>We do not guarantee full bandwidth of your connections to the Internet.</li>
+	<li>You can register your account to TH Wireless Authentication now.</li>
+  </ul>
+</div>
+
+</body>
+</html>

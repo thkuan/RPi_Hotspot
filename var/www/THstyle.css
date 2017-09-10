@@ -1,0 +1,67 @@
+/* 
+1. backgroud is the shorthand property with the order of the property values: background plus -color, -image, -repeat, -attachment, and -position.
+2. border property is the shorthand for the following individual boder properties: border plus -width, -style, and -color. 
+3. margin and padding properties can have from one to four values, i.e, top, right, bottom, and left.
+4. 1em = 16px is recommended by the W3C. 
+*/ 
+body {
+  margin: 0px;
+  padding: 0px;
+  /*background-color: #0f00fa; /* test */
+  font-size: 100%;
+  color: #000000;
+}
+table, td {
+  margin: 0px auto;
+  width: 300px;
+  /*background-color: #ffff00; /* test */
+}
+p {
+  margin: 0px;
+  font-size: 0.8125em;
+  /*background-color: #00ff00; /* test */
+}
+div {
+  font-size: 0.8125em;
+  /*background-color: #f000f0; /* test */
+}
+div.hintCH {
+  font-size: 0.9375em;
+  font-weight: bolder;
+}
+div.hintEN {
+  font-family: "Times New Roman", Times, serif;
+  color: #444444;
+}
+div.inputTitle {
+  font-size: 0.9375em;
+  width: 120px;
+  float: left;
+}
+div.info {
+  margin: 0px auto;
+  width: 310px;
+  text-align: left;
+}
+td#top {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.25em;
+  color: #ff0000;
+  padding: 10px 5px 0px 5px;
+  height: 30px;
+  background: url("") no-repeat;
+  -webkit-animation: fontColor 5s infinite; /* Chrome, Safari, Opera */
+  -moz-animation: fontColor 5s infinite; /* FireFox */
+  text-shadow: 1px 1px 1px #d0d0d0;
+}
+@-webkit-keyframes fontColor {50% {color: #0000ff;}}
+@-moz-keyframes fontColor {50% {color: #0000ff;}}
+@keyframes fontColor {50% {color: #0000ff;}}
+td#main {
+  padding: 3px;
+  border: 2px inset; 
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #d8d8d8;
+  background: url("") no-repeat bottom right;
+}
